@@ -11,17 +11,28 @@
 
 <form>
     <label for="memory">Extra memory</label>
-    <input type ="checkbox" id="memory" value="extra"> <br>
+    <input type="checkbox" id="memory" value="extra"> <br>
 
     <label for="mouse">Mouse</label>
-    <input type ="checkbox" id="mouse" value="mouse"> <br>
+    <input type="checkbox" id="mouse" value="mouse"> <br>
 
     <label for="cell">Cell service</label>
     <input type="checkbox" id="cell">
+    <br>
 
     <input type="button" onclick="orderComputer()" value="Order a computer">
 </form>
 
+<form>
+    <label for="property">Enter a property name</label>
+    <input type="text" id="property" value="engraved">
+    <br>
+    <label for="value">Enter a value</label>
+    <input type="text" id="value">
+    <br>
+    <input type="button" onclick="updateComputer()" value="Update the computer">
+    
+</form>
 
 <p id="result">This text will be replaced </p>
 
@@ -30,7 +41,7 @@
 my_computer = {}
 
 function orderComputer(){
-    let my_computer = {}
+    my_computer = {}
     
     if(document.getElementById("memory").checked){
         my_computer["Extra_memory"] = true 
@@ -51,9 +62,20 @@ function orderComputer(){
         my_computer["Cell_service"] = false
     }
 
-    message = "Extra memory: " + my_computer.Extra_memory + "Mouse: " + my_computer.Mouse + "Cell service: " + my_computer.Cell_service
+    message = "Extra memory: " + my_computer.Extra_memory + " Mouse: " + my_computer.Mouse + " Cell service: " + my_computer.Cell_service
 
     document.getElementById("result").innerHTML = message
+}
+
+function updateComputer(){
+    property = document.getElementById("property").value
+    value1 = document.getElementById("value").value
+
+    my_computer[property] = value1
+    new_message = "Extra memory: " + my_computer.Extra_memory + " Mouse: " + my_computer.Mouse + " Cell service: " + my_computer.Cell_service
+    new_message = new_message + " " + property + ": " + value1
+
+    document.getElementById("result").innerHTML = new_message
 }
 </script>
 
