@@ -57,5 +57,44 @@ function tips(){
 }
 </script>
 
+<form>
+    <label for="times">*</label>
+    <input type="radio" id="times" name="rad" value="times" onclick="chooseOp()">
+    <br>
+    <br>
+    <label for="divide">/</label>
+    <input type="radio" id="divide" name="rad" value="divide" onclick="chooseOp()">
+    <br>
+    <br>
+    <label for="exponent">**</label>
+    <input type="radio" id="exponent" name="rad" value="exponent" onclick="chooseOp()">
+</form>
+
+<p id="choose">This text will be replaced</p>
+
+<script>
+
+    function chooseOp(){
+        amount = Number(document.getElementById("amount").value)
+        tip = Number(document.getElementById("tip").value)
+
+        if(document.getElementById("times").checked){
+            document.getElementById("choose").innerHTML = amount * tip
+        }
+
+        if(document.getElementById("divide").checked){
+            document.getElementById("choose").innerHTML = amount / tip
+        }
+
+        if(document.getElementById("exponent").checked){
+            document.getElementById("choose").innerHTML = amount ** tip
+        }
+
+    }
+
+
+</script>
+
+
 </body>
 </html> 
