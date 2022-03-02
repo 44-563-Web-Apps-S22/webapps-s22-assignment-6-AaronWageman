@@ -17,7 +17,7 @@
     <label for="form1_p2">Guess the president</label>
     <input type ="text" id="form1_p2" name="form1_p2"> <br>
 
-    <input type="button" onclick="checkGuess()" value="Check the guess">
+    <input type="button" id="button1" onclick="checkGuess()" value="Check the guess">
 </form>
 
 
@@ -26,19 +26,30 @@
 <script> 
 correct = 0
 wrong = 0
+track = 0
 function checkGuess(){
     value1 = document.getElementById("form1_p1").value
     value2 = document.getElementById("form1_p2").value
     if(value1 == value2){
         correct++
         alert("You got it right")
+        track = 0
     }
     else{
         wrong++
         alert("Wrong President")
+        track++
+    }
+
+    if(track == 3){
+        document.getElementById("button1").onclick = gameOver()
     }
     
     document.getElementById("result").innerHTML = "Correct: " + correct + " Wrong: " + wrong  
+}
+
+function gameOver(){
+    alert("Sorry, game over.")
 }
 </script>
 
